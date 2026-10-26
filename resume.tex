@@ -1,0 +1,127 @@
+% !TEX root = resume.tex
+% !TEX program = xelatex
+\documentclass[10pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=0.55in]{geometry}
+\usepackage{fontspec}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[colorlinks=true, urlcolor=black, linkcolor=black]{hyperref}
+\usepackage{xcolor}
+
+% ---------- Typography and Spacing ----------
+\setmainfont{Calibri}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=2pt, parsep=0pt, partopsep=0pt}
+
+% ---------- Section Formatting ----------
+\titleformat{\section}
+  {\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{6pt}{5pt}
+
+% ---------- Custom Commands ----------
+% \resumeentry{Title}{Company, Location}{Date Range}
+\newcommand{\resumeentry}[3]{%
+      \vspace{5pt}%
+      \noindent\textbf{#1}, \textit{#2} \hfill #3\par
+      \vspace{5pt}%
+}
+
+% ---------- Document ----------
+\begin{document}
+\pagestyle{empty}
+
+% ===== Header =====
+\begin{center}
+      {\LARGE\bfseries Sriram MS} \\[2pt]
+      Backend Engineer \\[2pt]
+      Bangalore, India\,|\,
+      +91 6374033262\,|\,
+      \href{mailto:santhanamsriram07@gmail.com}{santhanamsriram07@gmail.com}\,|\,
+      \href{https://www.linkedin.com/in/sriram-ms}{\textcolor{blue}{\underline{LinkedIn}}}
+\end{center}
+
+% ===== Professional Summary =====
+\section{Professional Summary}
+Backend Engineer with 3.5+ years building high-traffic Java/Spring Boot services on AWS at scale.
+Comfortable owning work end-to-end --- from system design through production delivery and
+collaborating across engineering and partner teams. Experienced across the stack, from identity
+security and performance optimization to cloud-native infrastructure. Also experienced in
+end-to-end AI solution delivery, including agentic systems with RAG, LangGraph, and MCP-driven
+automation.
+
+% ===== Technical Skills =====
+\section{Technical Skills}
+\begin{tabular}{@{} l l}
+  \textbf{Languages:}       & Java (8, 11, 21), Python, SQL \\
+  \textbf{Backend:}         & Spring Boot, Spring Security, Spring Data JPA/Hibernate, Kafka, FastAPI \\
+  \textbf{APIs/Security:}   & Microservices, REST APIs, JWT, OAuth2, OIDC \\
+  \textbf{Cloud \& DevOps:} & AWS (Lambda, CloudWatch, S3, RDS, EC2, ECS), Docker, Kubernetes/OpenShift, CI/CD (Jenkins), Git, Maven \\
+  \textbf{Data \& Resilience:} & PostgreSQL, Redis, Resilience4j (Circuit Breakers) \\
+  \textbf{Testing \& QA:}   & JUnit 5, Mockito, SonarQube \\
+  \textbf{GenAI:}           & LLM integrations (API-based), LangGraph, MCP, RAG, AWS Bedrock \\
+\end{tabular}
+
+% ===== Professional Experience =====
+\section{Professional Experience}
+
+\resumeentry{Associate Solution Advisor}{Deloitte USI --- Bangalore, India}{August 2024 -- Present}
+\begin{itemize}[itemsep=3pt]
+  \item Designed and built core Spring Boot (Java 21) microservices for a government
+        health-benefits application serving 8M users.
+  \item Modernized cloud infrastructure by refactoring a legacy EC2-based malware scanning
+        service into AWS Lambda. Implemented S3 event triggers for real-time processing,
+        reducing infrastructure costs by 70\%.
+  \item Led the strategic migration of 4 microservices from Java 8 to Java 21, refactoring
+        30+ synchronous APIs to non-blocking WebClient. Improved throughput and p95 response
+        time from 600ms to 300ms.
+  \item Introduced Redis look-aside caching for hot User Profile reads and reference/lookup
+        data, eliminating redundant PostgreSQL reads on high-frequency read paths and reducing
+        database load.
+  \item Orchestrated OIDC/OAuth2 federation for 3 government partners, implementing JIT
+        provisioning and attribute mapping to cut onboarding time from 48 hours to under
+        2 minutes.
+\end{itemize}
+
+\smallskip
+
+\resumeentry{Analyst}{Deloitte USI --- Bangalore, India}{August 2022 -- August 2024}
+\begin{itemize}[itemsep=3pt]
+  \item Owned and built the end-to-end authentication and authorization security stack from
+        scratch using Spring Security, implementing stateless JWT-based access control for a
+        custom identity bridge.
+  \item Hardened 3rd-party API integrations against partner instability using circuit breakers
+        and retry policies (Resilience4j), improving p95 latency from 1.2s to 700ms and
+        reducing timeout-related failures during partner incidents.
+  \item Optimized data access layers for a high-volume PostgreSQL database. Diagnosed and
+        resolved Hibernate N+1 query issues by restructuring Entity relationships and
+        implementing batch fetching.
+  \item Established over 90\% unit test coverage as a team standard and enforced code quality
+        and security gates via SonarQube, reducing production defect rate.
+\end{itemize}
+
+% ===== Projects =====
+\section{Projects}
+
+\vspace{5pt}
+\noindent\textbf{Autonomous ITSM Resolution Agent}\par
+\vspace{5pt}
+\begin{itemize}
+  \item Built an agentic AI ITSM support assistant (Python/FastAPI, LangGraph) with
+        human-in-the-loop approval gates to meet compliance requirements.
+  \item Implemented RAG with a vector database for SOP-driven contextual analysis, enabling
+        accurate and context-aware resolution recommendations.
+  \item Integrated MCP for automated tool-assisted resolution actions, directly reducing
+        mean-time-to-resolution from 35 minutes to 15 minutes.
+\end{itemize}
+
+% ===== Education =====
+\section{Education}
+
+\noindent
+\textbf{Bachelor of Technology, Electrical and Electronics Engineering} \hfill 2018 -- 2022 \\
+SASTRA University, Thanjavur \hfill CGPA --- 7.97
+
+\end{document}
